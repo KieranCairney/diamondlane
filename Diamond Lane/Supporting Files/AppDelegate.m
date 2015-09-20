@@ -49,9 +49,11 @@
     
 }
 
--(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     
-    NSLog(@"Registered with remote notification with userInfo: %@",userInfo);
+    NSLog(@"Received (fetch) remote notification with userInfo: %@",userInfo);
+    
+    completionHandler ? completionHandler(UIBackgroundFetchResultNoData) : nil;
     
 }
 
